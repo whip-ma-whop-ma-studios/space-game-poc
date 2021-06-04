@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField, Tooltip("Speed to follow")]
     public float smoothSpeed = 0.1f;
     [SerializeField, Tooltip("Default camera offset")]
-    public Vector3 offset = new Vector3(0, 0.5, -10);
+    public Vector3 offset = new Vector3(0, 0.5f, -10);
     [SerializeField, Tooltip("x coordinate of the left edge")]
     public float leftEdgeX = -10;
     [SerializeField, Tooltip("x coordinate of the right edge")]
@@ -20,6 +20,8 @@ public class CameraFollow : MonoBehaviour
         Vector3 desiredPosition = ObjectToFollow.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
+
+        Debug.Log(ObjectToFollow.GetComponent<Rigidbody2D>().velocity);
     }
 
     public void Teleport(Vector3 toPosition)

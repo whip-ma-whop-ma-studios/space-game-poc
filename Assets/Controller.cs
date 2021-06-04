@@ -6,46 +6,20 @@ public class Controller : MonoBehaviour
 {
     [SerializeField, Tooltip("Max speed, in units per second, that the character moves.")]
     float speed = 5;
+    Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
     
 
     void FixedUpdate()
     {
-        Vector3 pos = transform.position;
-
-        if (Input.GetKey("w"))
-        {
-            pos.y += speed * Time.deltaTime;
-        }
-        if (Input.GetKey("s"))
-        {
-            pos.y -= speed * Time.deltaTime;
-        }
-        if (Input.GetKey("d"))
-        {
-            pos.x += speed * Time.deltaTime;
-        }
-        if (Input.GetKey("a"))
-        {
-            pos.x -= speed * Time.deltaTime;
-        }
-
- 
-        if (pos.x <= -15)
-        {
-            pos.x = 15;
-        }
-        else if (pos.x >= 15)
-        {
-            pos.x = -15;
-        }
-
-        transform.position = pos;
+        float mH = Input.GetAxis("Horizontal");
+        float mV = Input.GetAxis("Vertical");
+        rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
     }
 
 }
