@@ -35,7 +35,7 @@ public class WrapCameras : MonoBehaviour
         // y = 0 (positioned later)
         // z = -1
         var rightCameraPosition = new Vector3(rightEdgeX - (cameraHeight * mainCamera.aspect / 2), 0, -1);
-        rightCamera = CreateSideCamera("rightCamera", cameraHeight,);
+        rightCamera = CreateSideCamera("rightCamera", cameraHeight, rightCameraPosition);
 
         // And create materials for the cube from the camera view
         var rightCameraMaterial = CreateSideCameraMaterial("right", rightCamera);
@@ -59,7 +59,7 @@ public class WrapCameras : MonoBehaviour
         rightCube = CreateSideImageCube(
             "rightCameraCube",
             leftCameraMaterial,
-            cubeScale;
+            cubeScale,
             new Vector3(rightEdgeX + (cameraWidth / 2), 0, cubeLayerZ)
             );
     }
@@ -137,11 +137,5 @@ public class WrapCameras : MonoBehaviour
     {
         camera.transform.position = new Vector3(camera.transform.position.x, y, camera.transform.position.z);
         cube.transform.position = new Vector3(cube.transform.position.x, y, cube.transform.position.z);
-    }
-
-    void UpdateCameraSize(WrapCameras camera, float size)
-    {
-        camera.orthographicSize = size;
-
     }
 }
