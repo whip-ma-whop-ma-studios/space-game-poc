@@ -8,8 +8,8 @@ public class WrapAroundController : MonoBehaviour
     float leftEdge = -10;
     [SerializeField, Tooltip("X coorodinate for right edge of the map")]
     float rightEdge = 17;
-
-    public GameObject camera;
+    [SerializeField, Tooltip("Following Camera - set if the object has a camera followig it")]
+    public GameObject followingCamera;
 
     private bool startedTeleporting = false;
     private GameObject clone;
@@ -85,9 +85,9 @@ public class WrapAroundController : MonoBehaviour
 
     void Teleport(Vector3 position)
     {
-        if (camera != null)
+        if (followingCamera != null)
         {
-            camera.GetComponent<CameraFollow>().Teleport(position);
+            followingCamera.GetComponent<CameraFollow>().Teleport(position);
         }
         transform.position = position;
     }
