@@ -9,17 +9,12 @@ public class WrapAroundController : MonoBehaviour
     [SerializeField, Tooltip("X coorodinate for right edge of the map")]
     float rightEdge = 17;
 
+    public GameObject camera;
+
     private bool startedTeleporting = false;
     private GameObject clone;
     private Vector3 clonePos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
@@ -57,14 +52,14 @@ public class WrapAroundController : MonoBehaviour
             if (objectRightX <= leftEdge)
             {
                 pos.x = GetXToTeleportLeft(objectLeftX, objectRightX, halfWidth);
-                transform.position = pos;
+                Teleport(pos);
                 CleanUpAfterTeleport();
                 return;
             }
             if (objectLeftX >= rightEdge)
             {
                 pos.x = GetXToTeleportRight(objectLeftX, objectRightX, halfWidth);
-                transform.position = pos;
+                Teleport(pos);
                 CleanUpAfterTeleport();
                 return;
             }
@@ -86,6 +81,15 @@ public class WrapAroundController : MonoBehaviour
     float GetXToTeleportRight(float leftEdgeX, float rightEdgeX, float halfWidth)
     {
         return leftEdge + halfWidth + (leftEdgeX - rightEdge);
+    }
+
+    void Teleport(Vector3 position)
+    {
+        if (camera != null)
+        {
+            camera.GetComponent<CameraFollow>().Teleport(position);
+        }
+        transform.position = position;
     }
 
     void CleanUpAfterTeleport()
