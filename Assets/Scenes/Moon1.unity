@@ -1964,7 +1964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444909970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.63, y: -2.23, z: 0}
+  m_LocalPosition: {x: -24.05, y: -2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.7267169}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2275,8 +2275,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToFollow: {fileID: 1551288563}
-  dampTime: 0.1
+  smoothSpeed: 0.05
   offset: {x: 0, y: 0.5, z: -10}
+  minCameraSize: 2.5
+  maxCameraSize: 5
+  zoomSpeed: 0.1
   leftEdgeX: -26
   rightEdgeX: 17
 --- !u!1 &2043015285
