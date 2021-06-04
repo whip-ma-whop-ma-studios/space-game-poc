@@ -6,20 +6,20 @@ public class Controller : MonoBehaviour
 {
     [SerializeField, Tooltip("Max speed, in units per second, that the character moves.")]
     float speed = 5;
-    Rigidbody rb;
+    Rigidbody rigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
     }
     
 
     void FixedUpdate()
     {
-        float mH = Input.GetAxis("Horizontal");
-        float mV = Input.GetAxis("Vertical");
-        rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
+        float horizontalMovement = Input.GetAxis("Horizontal");
+        float verticalMovement = Input.GetAxis("Vertical");
+        rigidBody.velocity = new Vector3(horizontalMovement * speed, rigidBody.velocity.y, verticalMovement * speed);
     }
 
 }
