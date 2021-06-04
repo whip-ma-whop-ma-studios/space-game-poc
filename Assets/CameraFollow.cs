@@ -10,6 +10,12 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.1f;
     [SerializeField, Tooltip("Default camera offset")]
     public Vector3 offset = new Vector3(0, 0.5f, -10);
+    [SerializeField, Tooltip("Min camera size")]
+    public float minCameraSize = 1;
+    [SerializeField, Tooltip("Max camera size")]
+    public float maxCameraSize = 3;
+    [SerializeField, Tooltip("How fast to zoom")]
+    public float zoomSpeed = 1;
     [SerializeField, Tooltip("x coordinate of the left edge")]
     public float leftEdgeX = -10;
     [SerializeField, Tooltip("x coordinate of the right edge")]
@@ -19,9 +25,13 @@ public class CameraFollow : MonoBehaviour
     {
         Vector3 desiredPosition = ObjectToFollow.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
 
-        Debug.Log(ObjectToFollow.GetComponent<Rigidbody2D>().velocity);
+        var xCameraObjectDiff = Mathf.Abs(desiredPosition.x - transform.position.x);
+
+        GetComponent<Camera>().orthographicSize = Mathf.Lerp(minCameraSize, maxCameraSize, xCameraObjectDiff * zoomSpeed);
+
+
+        transform.position = smoothedPosition;       
     }
 
     public void Teleport(Vector3 toPosition)
