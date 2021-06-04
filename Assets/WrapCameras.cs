@@ -11,6 +11,8 @@ public class WrapCameras : MonoBehaviour
     public float cubeLayerZ = 0.5f;
     [SerializeField, Tooltip("The main camera")]
     public Camera mainCamera;
+    [SerializeField, Tooltip("Max Camera Size (that can be zoomed out to)")]
+    public float maxCameraSize = 3;
 
     private Camera leftCamera;
     private Camera rightCamera;
@@ -20,7 +22,7 @@ public class WrapCameras : MonoBehaviour
 
     void Start()
     { 
-        var cameraHeight = mainCamera.orthographicSize * 2f;
+        var cameraHeight = maxCameraSize * 2f;
         var cameraWidth = cameraHeight * mainCamera.aspect;
 
         // Setup both cameras on each side
@@ -29,7 +31,7 @@ public class WrapCameras : MonoBehaviour
         // y = 0 (positioned later)
         // z = -1
         var leftCameraPosition = new Vector3(leftEdgeX + (cameraHeight * mainCamera.aspect / 2), 0, -1);
-        leftCamera = CreateSideCamera("leftCamera", cameraHeight, cameraPosition);
+        leftCamera = CreateSideCamera("leftCamera", cameraHeight, leftCameraPosition);
 
         // x = Right edge - camera width (height * half the ratio)
         // y = 0 (positioned later)
@@ -45,7 +47,7 @@ public class WrapCameras : MonoBehaviour
         // y = camera size * 2 (just how it works)
         // z = 0 - basically a 2d plane
         // All inversed as the image was flipped, may be different in another configuration
-        var cubeScale = new Vector3(-(cameraHeight * mainCamera.aspect), -(mainCamera.orthographicSize * 2f), 0);
+        var cubeScale = new Vector3(-(cameraHeight * mainCamera.aspect), -(cameraHeight), 0);
 
         // Create cube on the left, showing the camera on the right
         leftCube = CreateSideImageCube(
@@ -99,7 +101,7 @@ public class WrapCameras : MonoBehaviour
         var camera = cameraObj.AddComponent<Camera>();
         camera.orthographic = true;
         // Orthographic camera width is 2*size
-        camera.orthographicSize = mainCamera.orthographicSize;
+        camera.orthographicSize = maxCameraSize;
 
         camera.transform.position = position;
 
