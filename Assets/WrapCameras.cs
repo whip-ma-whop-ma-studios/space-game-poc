@@ -24,18 +24,34 @@ public class WrapCameras : MonoBehaviour
         var cameraWidth = cameraHeight * mainCamera.aspect;
 
         // Setup both cameras on each side
-        leftCamera = CreateSideCamera("leftCamera", cameraHeight, new Vector3(leftEdgeX + (cameraHeight * mainCamera.aspect / 2), 0, -1));
-        rightCamera = CreateSideCamera("rightCamera", cameraHeight, new Vector3(rightEdgeX - (cameraHeight * mainCamera.aspect / 2), 0, -1));
+        
+        // x = Left edge + camera width (height * half the ratio)
+        // y = 0 (positioned later)
+        // z = -1
+        var leftCameraPosition = new Vector3(leftEdgeX + (cameraHeight * mainCamera.aspect / 2), 0, -1);
+        leftCamera = CreateSideCamera("leftCamera", cameraHeight, cameraPosition);
+
+        // x = Right edge - camera width (height * half the ratio)
+        // y = 0 (positioned later)
+        // z = -1
+        var rightCameraPosition = new Vector3(rightEdgeX - (cameraHeight * mainCamera.aspect / 2), 0, -1);
+        rightCamera = CreateSideCamera("rightCamera", cameraHeight,);
 
         // And create materials for the cube from the camera view
         var rightCameraMaterial = CreateSideCameraMaterial("right", rightCamera);
         var leftCameraMaterial = CreateSideCameraMaterial("left", leftCamera);
 
+        // x = height of camera * aspect ratio of camera
+        // y = camera size * 2 (just how it works)
+        // z = 0 - basically a 2d plane
+        // All inversed as the image was flipped, may be different in another configuration
+        var cubeScale = new Vector3(-(cameraHeight * mainCamera.aspect), -(mainCamera.orthographicSize * 2f), 0);
+
         // Create cube on the left, showing the camera on the right
         leftCube = CreateSideImageCube(
             "leftCameraCube",
             rightCameraMaterial,
-            new Vector3(-(cameraHeight * mainCamera.aspect), -(mainCamera.orthographicSize * 2f), 0),
+            cubeScale,
             new Vector3(leftEdgeX - (cameraWidth / 2), 0, cubeLayerZ)
             );
 
@@ -43,7 +59,7 @@ public class WrapCameras : MonoBehaviour
         rightCube = CreateSideImageCube(
             "rightCameraCube",
             leftCameraMaterial,
-            new Vector3(-(cameraHeight * mainCamera.aspect), -(mainCamera.orthographicSize * 2f), 0),
+            cubeScale;
             new Vector3(rightEdgeX + (cameraWidth / 2), 0, cubeLayerZ)
             );
     }
@@ -121,5 +137,11 @@ public class WrapCameras : MonoBehaviour
     {
         camera.transform.position = new Vector3(camera.transform.position.x, y, camera.transform.position.z);
         cube.transform.position = new Vector3(cube.transform.position.x, y, cube.transform.position.z);
+    }
+
+    void UpdateCameraSize(WrapCameras camera, float size)
+    {
+        camera.orthographicSize = size;
+
     }
 }
