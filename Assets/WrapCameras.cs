@@ -110,7 +110,7 @@ public class WrapCameras : MonoBehaviour
 
     Material CreateSideCameraMaterial(string name, Camera camera)
     {
-        var rightCameraRT = new RenderTexture(camera.pixelWidth, camera.pixelHeight, 16, RenderTextureFormat.ARGB32);
+        var rightCameraRT = new RenderTexture(camera.pixelWidth, camera.pixelHeight, 32, RenderTextureFormat.ARGB32);
         rightCameraRT.name = name + "RenderTexture";
         rightCameraRT.Create();
 
