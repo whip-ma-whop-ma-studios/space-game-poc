@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 493986111}
   - component: {fileID: 493986110}
   - component: {fileID: 493986109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEdge: -26
   rightEdge: 17
-  camera: {fileID: 0}
+  followingCamera: {fileID: 0}
 --- !u!1 &1551288559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,9 +1997,10 @@ GameObject:
   - component: {fileID: 1551288562}
   - component: {fileID: 1551288561}
   - component: {fileID: 1551288560}
+  - component: {fileID: 1551288566}
+  - component: {fileID: 1551288567}
   - component: {fileID: 1551288565}
   - component: {fileID: 1551288564}
-  - component: {fileID: 1551288566}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2128,10 +2129,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551288559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04ffe008c8c552d468299347b523c277, type: 3}
+  m_Script: {fileID: 11500000, guid: 42b59ff66eafd8b4da098de28c6d1345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  _playerMovementController: {fileID: 1551288565}
+  boxHeight: 0.05
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1551288565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2139,13 +2144,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551288559}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac751b8061e7a645b9dba610c18298b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dd2339961370a24c93b74a10294ba4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftEdge: -26
-  rightEdge: 17
+  _jumpForce: 350
+  _fallMultiplier: 1.5
+  _lowJumpMultiplier: 3
+  _horizontalSpeed: 5
 --- !u!114 &1551288566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2160,7 +2167,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEdge: -26
   rightEdge: 17
-  camera: {fileID: 1863100817}
+  followingCamera: {fileID: 1863100817}
+--- !u!114 &1551288567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551288559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48fd296d3777f144b54c850372434e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovementController: {fileID: 1551288565}
 --- !u!1 &1863100817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2282,7 @@ MonoBehaviour:
   rightEdgeX: 17
   cubeLayerZ: 0.5
   mainCamera: {fileID: 1863100819}
+  maxCameraSize: 3
 --- !u!114 &1863100822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2275,7 +2296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToFollow: {fileID: 1551288563}
-  smoothSpeed: 0.05
+  smoothSpeed: 0.1
   offset: {x: 0, y: 0.5, z: -10}
   minCameraSize: 2.5
   maxCameraSize: 5
