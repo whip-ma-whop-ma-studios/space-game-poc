@@ -37,7 +37,6 @@ public class CameraFollow : MonoBehaviour
 
         camera.orthographicSize = Mathf.Lerp(minCameraSize, maxCameraSize, xCameraObjectDiff * zoomSpeed);
 
-
         transform.position = smoothedPosition;       
     }
 

@@ -13,6 +13,8 @@ public class WrapCameras : MonoBehaviour
     public Camera mainCamera;
     [SerializeField, Tooltip("Max Camera Size (that can be zoomed out to)")]
     public float maxCameraSize = 3;
+    [SerializeField, Tooltip("Layers to cull from cameras")]
+    public int _cullingMask;
 
     private Camera leftCamera;
     private Camera rightCamera;
@@ -99,6 +101,10 @@ public class WrapCameras : MonoBehaviour
         GameObject cameraObj = new GameObject();
         cameraObj.name = name;
         var camera = cameraObj.AddComponent<Camera>();
+        // Bitmap operator as culling mask works as binary
+        // eg. to show all but layer 6, cluningMask = 011111 and so must be set to 32
+        // TODO dynamically get the "background" layer
+        camera.cullingMask = 1 << _cullingMask;
         camera.orthographic = true;
         // Orthographic camera width is 2*size
         camera.orthographicSize = maxCameraSize;
@@ -116,7 +122,7 @@ public class WrapCameras : MonoBehaviour
 
         camera.targetTexture = rightCameraRT;
 
-        Material rightCameraMaterial = new Material(Shader.Find("Unlit/Texture"));
+        Material rightCameraMaterial = new Material(Shader.Find("Unlit/Transparent Cutout"));
         rightCameraMaterial.SetTexture("_MainTex", rightCameraRT);
         rightCameraMaterial.name = name + "TextureMaterial";
 
