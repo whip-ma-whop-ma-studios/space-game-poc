@@ -5,11 +5,21 @@ public class PlayerInputController : MonoBehaviour
 {
     [SerializeField]
     private PlayerMovementController _playerMovementController;
+    [SerializeField]
+    private LayerMask groundLayer;
+
+    private PlayerInteractionController _playerInteractionController;
+
+    void Awake()
+    {
+        _playerInteractionController = gameObject.GetComponent<PlayerInteractionController>();
+    }
 
     void Update()
     {
         HorizontalMovementCheck();
         JumpCheck();
+        InteractionCheck();
     }
 
     private void HorizontalMovementCheck()
@@ -52,4 +62,13 @@ public class PlayerInputController : MonoBehaviour
             yield return new WaitForSeconds(waitTime);
         }
     }
+
+    public void InteractionCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            _playerInteractionController.CheckForInteractions();
+        }
+    }
+
 }
