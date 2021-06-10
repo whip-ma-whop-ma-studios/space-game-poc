@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundParallax : MonoBehaviour
 {
-    [SerializeField, Tooltip("Amount to parallex")]
+    [SerializeField, Tooltip("Amount to parallax")]
     float parallaxAmount = 0.2f;
     [SerializeField, Tooltip("The main camera")]
     public Camera mainCamera;
