@@ -21,11 +21,11 @@ public class CameraFollow : MonoBehaviour
     [SerializeField, Tooltip("x coordinate of the right edge")]
     public float rightEdgeX = 17;
 
-    private Camera camera;
+    private Camera _cam;
 
     void Start()
     {
-        camera = GetComponent<Camera>();
+        _cam = GetComponent<Camera>();
     }
 
     void FixedUpdate()
@@ -35,8 +35,7 @@ public class CameraFollow : MonoBehaviour
 
         var xCameraObjectDiff = Mathf.Abs(desiredPosition.x - transform.position.x);
 
-        camera.orthographicSize = Mathf.Lerp(minCameraSize, maxCameraSize, xCameraObjectDiff * zoomSpeed);
-
+        _cam.orthographicSize = Mathf.Lerp(minCameraSize, maxCameraSize, xCameraObjectDiff * zoomSpeed);
 
         transform.position = smoothedPosition;       
     }
