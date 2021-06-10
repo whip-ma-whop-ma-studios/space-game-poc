@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackgroundParallax : MonoBehaviour
 {
     [SerializeField, Tooltip("Amount to parallex")]
-    float parallexAmount = 0.2f;
+    float parallaxAmount = 0.2f;
     [SerializeField, Tooltip("The main camera")]
     public Camera mainCamera;
     [SerializeField, Tooltip("LeftEdge of map")]
@@ -29,7 +29,7 @@ public class BackgroundParallax : MonoBehaviour
     void Update()
     {
         float cameraMovedFromLeft = mainCamera.transform.position.x - leftEdgeX;
-        float distToMove = cameraMovedFromLeft * parallexAmount;
+        float distToMove = cameraMovedFromLeft * parallaxAmount;
         transform.position = new Vector3(leftEdgeX + distToMove + (_length / 2), transform.position.y, transform.position.z);
 
         _leftClone.transform.position = transform.position - new Vector3(_length, 0, 0);
