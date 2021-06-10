@@ -11,12 +11,8 @@ TagManager:
   - cameras
   - Water
   - UI
-<<<<<<< HEAD
+  - foreground
   - backgrounds
-=======
-  - Ground
->>>>>>> 0bc03029d8430897ee782fa262eec442a8651602
-  - 
   - 
   - 
   - 

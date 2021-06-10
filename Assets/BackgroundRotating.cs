@@ -16,8 +16,8 @@ public class BackgroundRotating : MonoBehaviour
     {
         float cameraMovedFromLeft = Mathf.Abs(_leftEdgeX) + _mainCamera.transform.position.x;
         float percentageMoved = cameraMovedFromLeft / (Mathf.Abs(_leftEdgeX) + _rightEdgeX);
-        Debug.Log(percentageMoved);
         float angleToRotate = 1 - (percentageMoved * 360);
+
         transform.position = new Vector3(_mainCamera.transform.position.x, transform.position.y, transform.position.z);
         transform.rotation = Quaternion.Euler(0, 0, angleToRotate);
     }

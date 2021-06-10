@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 493986111}
   - component: {fileID: 493986110}
   - component: {fileID: 493986109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,6 +174,10 @@ EdgeCollider2D:
   m_Points:
   - {x: -26.268631, y: -3.000412}
   - {x: -11.000957, y: -3.000152}
+  - {x: -8.998222, y: -3.0005453}
+  - {x: -9.001925, y: -4.0014553}
+  - {x: -4.9991994, y: -4.001055}
+  - {x: -4.9999714, y: -3.0003939}
   - {x: -3.99846, y: -3.0010703}
   - {x: -4.0044546, y: -4.0029716}
   - {x: 0.00055897236, y: -4.0010104}
@@ -1753,7 +1757,7 @@ GameObject:
   - component: {fileID: 509282556}
   - component: {fileID: 509282555}
   - component: {fileID: 509282554}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: moon_and_sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1851,7 +1855,7 @@ GameObject:
   - component: {fileID: 621849475}
   - component: {fileID: 621849474}
   - component: {fileID: 621849476}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2197,7 +2201,7 @@ GameObject:
   - component: {fileID: 1551288567}
   - component: {fileID: 1551288565}
   - component: {fileID: 1551288564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2479,7 +2483,9 @@ MonoBehaviour:
   cubeLayerZ: 0.5
   mainCamera: {fileID: 1863100819}
   maxCameraSize: 5
-  _cullingMask: 32
+  _cullingMask:
+    serializedVersion: 2
+    m_Bits: 127
 --- !u!114 &1863100822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2510,7 +2516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2043015287}
   - component: {fileID: 2043015286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2555,7 +2561,7 @@ GameObject:
   - component: {fileID: 2070706478}
   - component: {fileID: 2070706477}
   - component: {fileID: 2070706476}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Hills_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
