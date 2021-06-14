@@ -5,10 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public Animator _transition;
+    public float _transitionTime;
+
     public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene);
+        StartCoroutine(LoadSceneWithAnimation(scene));
     }
 
-    // TODO Some animation logic
+    IEnumerator LoadSceneWithAnimation(string scene)
+    {
+        _transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(_transitionTime);
+
+        SceneManager.LoadScene(scene);
+    }
 }
