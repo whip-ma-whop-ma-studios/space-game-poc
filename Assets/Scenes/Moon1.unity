@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transition: {fileID: 1966507596}
-  _transitionTime: 0
+  _transitionTime: 1
   _sceneToLoad: Cave1
 --- !u!1 &493986107
 GameObject:
