@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e010a25a37a2da41b09a8a70a90f073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneToLoad: Cave1
 --- !u!1 &493986107
 GameObject:
   m_ObjectHideFlags: 0
