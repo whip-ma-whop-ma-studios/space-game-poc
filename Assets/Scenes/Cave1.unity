@@ -2768,7 +2768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transition: {fileID: 2103778469}
   _transitionTime: 1
-  _sceneToLoad: Moon1
+  _sceneToLoad: StartMenu
   _player: {fileID: 1453259564}
 --- !u!61 &1118263838
 BoxCollider2D:
