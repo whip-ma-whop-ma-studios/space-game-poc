@@ -39,11 +39,11 @@ public class PlayerInteractionController : MonoBehaviour
         _hitColliders = Physics2D.OverlapCircleAll(transform.position, DetectionRadius, _interactionLayers);
         if (_hitColliders.Any())
         {
-            _interactionPopupController.SetActive();
+            _interactionPopupController.Activate();
         }
         else
         {
-            _interactionPopupController.SetInactive();
+            _interactionPopupController.Deactivate();
         }
     }
 }

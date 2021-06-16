@@ -14,15 +14,12 @@ public class InteractionPopupController : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public void SetActive()
+    public void Activate()
     {
-        if(!gameObject.activeSelf)
-        {
-            gameObject.SetActive(true);
-        }
+        gameObject.SetActive(true);
     }
 
-    public void SetInactive()
+    public void Deactivate()
     {
         if (gameObject.activeSelf)
         {
