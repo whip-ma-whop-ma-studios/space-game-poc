@@ -8,14 +8,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - cameras
+  - Cameras
   - Water
   - UI
-  - foreground
-  - backgrounds
-  - interactionable
-  - 
-  - 
+  - Foreground
+  - Background
+  - Interactable
+  - Player
+  - UI
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
   - name: Foreground
     uniqueID: 2277460591
     locked: 0
-  - name: people
+  - name: Interactable
+    uniqueID: 4095196443
+    locked: 0
+  - name: People
     uniqueID: 2556935935
     locked: 0

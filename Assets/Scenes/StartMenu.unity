@@ -678,8 +678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f5c2a62d954124389cf11b73457602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transition: {fileID: 1114541309}
-  _transitionTime: 0
+  _sceneLoaderAnimator: {fileID: 1114541309}
+  _sceneLoaderAnimationTime: 1
   _sceneToLoad: Moon1
 --- !u!224 &1500329677 stripped
 RectTransform:
