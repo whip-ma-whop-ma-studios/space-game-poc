@@ -5,16 +5,18 @@ using UnityEngine;
 public class BackgroundParallax : MonoBehaviour
 {
     [SerializeField, Tooltip("Amount to parallax")]
-    float parallaxAmount = 0.2f;
-    [SerializeField, Tooltip("The main camera")]
-    public Camera mainCamera;
-    [SerializeField, Tooltip("LeftEdge of map")]
-    public float leftEdgeX = -26;
+    private float _parallaxAmount = 0.2f;
+    [SerializeField]
+    private Camera _mainCamera;
+    [SerializeField]
+    private float _leftEdgeX = -26;
+    [SerializeField]
+    private GameObject _light;
 
     private float _length;
     private GameObject _leftClone, _rightClone;
+    private float _lightDistanceFromBackground;
 
-    // Start is called before the first frame update
     void Start()
     {
         _length = GetComponent<SpriteRenderer>().bounds.size.x;
@@ -23,17 +25,27 @@ public class BackgroundParallax : MonoBehaviour
         _leftClone.GetComponent<BackgroundParallax>().enabled = false;
         _rightClone = Instantiate(gameObject);
         _rightClone.GetComponent<BackgroundParallax>().enabled = false;
+
+        if (_light != null)
+        {
+            // If there is a light on this background element, see how far from the centre of the following background element it is
+            _lightDistanceFromBackground = _light.transform.position.x - transform.position.x;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float cameraMovedFromLeft = mainCamera.transform.position.x - leftEdgeX;
-        float distToMove = cameraMovedFromLeft * parallaxAmount;
-        transform.position = new Vector3(leftEdgeX + distToMove + (_length / 2), transform.position.y, transform.position.z);
+        float cameraMovedFromLeft = _mainCamera.transform.position.x - _leftEdgeX;
+        float distToMove = cameraMovedFromLeft * _parallaxAmount;
+        transform.position = new Vector3(_leftEdgeX + distToMove + (_length / 2), transform.position.y, transform.position.z);
+
+        if (_light != null)
+        {
+            // If there is a light on this background element, move it in the x direction also
+            _light.transform.position = new Vector3(transform.position.x + _lightDistanceFromBackground, _light.transform.position.y, _light.transform.position.z);
+        }
 
         _leftClone.transform.position = transform.position - new Vector3(_length, 0, 0);
         _rightClone.transform.position = transform.position + new Vector3(_length, 0, 0);
     }
-
 }
