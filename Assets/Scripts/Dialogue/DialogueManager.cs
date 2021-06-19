@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     private GameObject _speakerOneUI;
     [SerializeField]
     private GameObject _speakerTwoUI;
+    [SerializeField]
+    private GameObject _background;
 
     [SerializeField]
     private GameObject _canvas;
@@ -25,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     private Animator _speakerTwoAnimator;
 
     private Animator _dialogueBoxAnimator;
+    private Animator _backgroundAnimator;
 
     private Image _speakerOneImage;
     private Image _speakerTwoImage;
@@ -75,6 +78,7 @@ public class DialogueManager : MonoBehaviour
     private void SetupDialogueBoxAnimator()
     {
         _dialogueBoxAnimator = GetComponent<Animator>();
+        _backgroundAnimator = _background.GetComponent<Animator>();
     }
 
     private void SetupSpeakers()
@@ -148,19 +152,20 @@ public class DialogueManager : MonoBehaviour
         _previousSpeakerWasSpeakerOne = null;
     }
 
+    private void PlayClosingAnimations()
+    {
+        _dialogueBoxAnimator.Play("MoveOut");
+        _speakerOneAnimator.Play("ScaleDown");
+        _speakerTwoAnimator.Play("ScaleDown");
+        _backgroundAnimator.Play("FadeOut");
+    }
+
     private void ResetImages()
     {
         _speakerOneImage.color = new Color(1, 1, 1, 1);
         _speakerTwoImage.color = new Color(1, 1, 1, 1);
         _speakerOneUI.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         _speakerTwoUI.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-    }
-
-    private void PlayClosingAnimations()
-    {
-        _dialogueBoxAnimator.Play("MoveOut");
-        _speakerOneAnimator.Play("ScaleDown");
-        _speakerTwoAnimator.Play("ScaleDown");
     }
 
     private void SetDialogueTextAndIncrementIndex(string text)
