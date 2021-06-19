@@ -2393,6 +2393,10 @@ PrefabInstance:
       propertyPath: followingCamera
       value: 
       objectReference: {fileID: 1091934601}
+    - target: {fileID: 6334822684023189079, guid: 672e24d7fbbe92e45abe9787ce0173c0, type: 3}
+      propertyPath: boxWidthMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6334822684023189083, guid: 672e24d7fbbe92e45abe9787ce0173c0, type: 3}
       propertyPath: _interactionPopupController
       value: 

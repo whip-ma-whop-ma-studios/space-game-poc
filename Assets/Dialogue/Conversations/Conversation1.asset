@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f67acad71531dd49a72931c6375015b, type: 3}
+  m_Name: Conversation1
+  m_EditorClassIdentifier: 
+  _speakerOne: {fileID: 11400000, guid: f535651c333541842af6cb0275f058d2, type: 2}
+  _speakerTwo: {fileID: 11400000, guid: de51a432eac037349bfa34cda54226e4, type: 2}
+  _dialogueLines:
+  - isSpeakerOne: 0
+    dialogue: Hello, my name is Quentin!
+    animation: {fileID: 7400000, guid: 0709d819a2e020d4a8c92f5615bb893c, type: 2}
+  - isSpeakerOne: 0
+    dialogue: Some others call me the RedGuy - for I am Red and I am a guy.
+    animation: {fileID: 7400000, guid: 3935ce58996a1234d84a9316c530dc31, type: 2}
+  - isSpeakerOne: 1
+    dialogue: Hello, my name is Melanie Martinez. I am neither Red nor a guy, and
+      that does make me cry.
+    animation: {fileID: 7400000, guid: 232c3fdd0c63a1f4babcf83e24aeaf4e, type: 2}
+  - isSpeakerOne: 0
+    dialogue: Oh Melanie, please don't cry. I'm going to throw my arms up and down
+      in the hope that will make you stop somehow.
+    animation: {fileID: 7400000, guid: 0709d819a2e020d4a8c92f5615bb893c, type: 2}

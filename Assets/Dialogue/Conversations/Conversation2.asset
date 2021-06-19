@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f67acad71531dd49a72931c6375015b, type: 3}
+  m_Name: Conversation2
+  m_EditorClassIdentifier: 
+  _speakerOne: {fileID: 11400000, guid: de51a432eac037349bfa34cda54226e4, type: 2}
+  _speakerTwo: {fileID: 11400000, guid: f535651c333541842af6cb0275f058d2, type: 2}
+  _dialogueLines:
+  - isSpeakerOne: 1
+    dialogue: 'Hello again Melanie. '
+    animation: {fileID: 0}
+  - isSpeakerOne: 0
+    dialogue: Hello Quentin! Looks like we're on the opposite sides of the conversation
+      to each other now!
+    animation: {fileID: 7400000, guid: 232c3fdd0c63a1f4babcf83e24aeaf4e, type: 2}

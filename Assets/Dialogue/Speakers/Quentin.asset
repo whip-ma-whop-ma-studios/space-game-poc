@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd797f2d4c77a364e830a0761a723b91, type: 3}
+  m_Name: Quentin
+  m_EditorClassIdentifier: 
+  _speakerName: Quentin
+  _speakerObject: {fileID: 4107320549547997738, guid: 9af25b7a640b02243997484f8749b215, type: 3}
