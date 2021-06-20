@@ -13,6 +13,7 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
         _dialogueUI.SetActive(true);
         Time.timeScale = 0;
         DialogueManager.StartConversation(_conversationManager.ChooseConversation());
+        PlayerInputController.PlayerInputEnabled = false;
     }
 }
 

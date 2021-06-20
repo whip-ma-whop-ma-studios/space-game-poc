@@ -150,6 +150,7 @@ public class DialogueManager : MonoBehaviour
         _canvas.SetActive(false);
         Time.timeScale = 1;
         _previousSpeakerWasSpeakerOne = null;
+        PlayerInputController.PlayerInputEnabled = true;
     }
 
     private void PlayClosingAnimations()
