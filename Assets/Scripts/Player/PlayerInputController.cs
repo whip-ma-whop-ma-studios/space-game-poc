@@ -7,6 +7,7 @@ public class PlayerInputController : MonoBehaviour
     private PlayerMovementController _playerMovementController;
     [SerializeField]
     private LayerMask groundLayer;
+    public static bool PlayerInputEnabled = true;
 
     private PlayerInteractionController _playerInteractionController;
 
@@ -17,9 +18,13 @@ public class PlayerInputController : MonoBehaviour
 
     void Update()
     {
-        HorizontalMovementCheck();
-        JumpCheck();
-        InteractionCheck();
+        if (PlayerInputEnabled)
+        {
+            HorizontalMovementCheck();
+            JumpCheck();
+            InteractionCheck();
+        }
+    
     }
 
     private void HorizontalMovementCheck()
