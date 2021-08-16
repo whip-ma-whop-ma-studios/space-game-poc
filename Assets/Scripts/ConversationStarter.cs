@@ -10,7 +10,7 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
     private GameObject _dialogueUI;
 
     [SerializeField]
-    public List<QuestCollection> _relatedCollectionQuests;
+    public List<CollectionQuest> _relatedCollectionQuests;
 
     public void Interact()
     {
@@ -18,7 +18,7 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
         Time.timeScale = 0;
         PlayerInputController.PlayerInputEnabled = false;
 
-        foreach (QuestCollection q in _relatedCollectionQuests)
+        foreach (CollectionQuest q in _relatedCollectionQuests)
         {
             // Check through quests to find relevent one
             if (q.IsLocked())
@@ -31,13 +31,13 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
                 // Quest is unlocked, start it
                 Debug.Log("Starting quest: " + q._name);
                 q.Start();
-                DialogueManager.StartConversation(q.startConversation);
+                DialogueManager.StartConversation(q._startConversation);
                 return;
             }
             else if (q.IsCompleted())
             {
                 // just completed, finish it
-                DialogueManager.StartConversation(q.endConversation);
+                DialogueManager.StartConversation(q._endConversation);
                 Debug.Log("Checking finished quest: " + q._name);
                 q.Finish();
                 return;
@@ -46,7 +46,7 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
             {
                 // started and in progress, but not complete
                 Debug.Log("In mid quest: " + q._name);
-                DialogueManager.StartConversation(q.startConversation);
+                DialogueManager.StartConversation(q._midConversation);
                 return;
             }
         }

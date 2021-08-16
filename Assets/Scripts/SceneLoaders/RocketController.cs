@@ -12,10 +12,6 @@ public class RocketController : SceneLoader, IInteractableObj
 
     private Animator _animator;
 
-    public Objective RelatedObjective { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public ObjectiveState RequiredState { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public ObjectiveState TransitionState { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
     private void Start()
     {
         _animator = gameObject.GetComponent<Animator>();

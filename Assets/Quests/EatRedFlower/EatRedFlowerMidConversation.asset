@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f67acad71531dd49a72931c6375015b, type: 3}
-  m_Name: New Conversation
+  m_Name: EatRedFlowerMidConversation
   m_EditorClassIdentifier: 
   _speakerOne: {fileID: 11400000, guid: f535651c333541842af6cb0275f058d2, type: 2}
   _speakerTwo: {fileID: 11400000, guid: de51a432eac037349bfa34cda54226e4, type: 2}
   _dialogueLines:
-  - isSpeakerOne: 0
-    dialogue: No really, you must eat the red.
-    animation: {fileID: 7400000, guid: 3935ce58996a1234d84a9316c530dc31, type: 2}
-  _objectiveState: {fileID: 11400000, guid: 6e57135abcbc5a2459f6e681b1bb6979, type: 2}
+  - isSpeakerOne: 1
+    dialogue: You need to eat THREE of the RED flowers
+    animation: {fileID: 0}
+  - isSpeakerOne: 1
+    dialogue: You can do it!
+    animation: {fileID: 0}

@@ -3,7 +3,7 @@ using UnityEngine;
 public class DoorController : SceneLoader, IInteractableObj
 {
     [SerializeField]
-    public QuestCollection _requiredCompletedQuest;
+    public CollectionQuest _requiredCompletedQuest;
 
     [SerializeField]
     public string _sceneToLoad;

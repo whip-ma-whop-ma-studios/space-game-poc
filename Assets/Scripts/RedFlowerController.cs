@@ -5,7 +5,7 @@ using UnityEngine;
 public class RedFlowerController : Consumable, IInteractableObj
 {
     [SerializeField]
-    public List<QuestCollection> _relatedCollectionQuests;
+    public List<CollectionQuest> _relatedCollectionQuests;
 
     public void Interact()
     {
@@ -15,7 +15,7 @@ public class RedFlowerController : Consumable, IInteractableObj
 
     public void ProgressQuest()
     {
-        foreach (QuestCollection q in _relatedCollectionQuests)
+        foreach (CollectionQuest q in _relatedCollectionQuests)
         {
             // Check all related quests for the first that can be progressed
             if (q.IsStarted())

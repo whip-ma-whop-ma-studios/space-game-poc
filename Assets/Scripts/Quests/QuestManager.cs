@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// QuestManager currently only used to reset quests on scene load for testing purposes
+// May not be needed
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField]
-    public List<QuestCollection> _collectionQuests;
-    // Start is called before the first frame update
+    public List<CollectionQuest> _quests;
+
     void Start()
     {
-        
+        foreach (CollectionQuest q in _quests)
+        {
+            q.Reset();
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 }

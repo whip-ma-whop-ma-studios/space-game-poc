@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Collection Quest", menuName = "Quests/New Collection Quest")]
-public class QuestCollection : ScriptableObject, IQuest
+public class CollectionQuest : ScriptableObject
 {
     public enum State
     {
@@ -23,23 +23,31 @@ public class QuestCollection : ScriptableObject, IQuest
     [SerializeField]
     public int _endAmount;
     [SerializeField]
-    public bool startUnlocked = true;
+    public bool _startUnlocked = true;
     [SerializeField]
-    public Conversation startConversation;
+    public Conversation _startConversation;
     [SerializeField]
-    public Conversation endConversation;
+    public Conversation _midConversation;
+    [SerializeField]
+    public Conversation _endConversation;
+    [SerializeField]
+    public List<CollectionQuest> _unlockQuestsOnCompletion;
+    [SerializeField]
+    public List<CollectionQuest> _startQuestsOnCompletion;
+    [SerializeField]
+    public int _currentAmount = 0;
+    [SerializeField]
+    private State _currentState;
 
-    [SerializeField]
-    public List<QuestCollection> _unlockQuestsOnCompletion;
-
-    [SerializeField]
-    public List<QuestCollection> _startQuestsOnCompletion;
-
-
-    [SerializeField]
-    private int _currentAmount = 0;
-    public State _currentState;
-    
+    public void Reset()
+    {
+        _currentAmount = 0;
+        _currentState = State.Locked;
+        if (_startUnlocked)
+        {
+            _currentState = State.Unlocked;
+        }
+    }
 
     public void IncrementAmount(int incrementAmount)
     {
@@ -65,7 +73,6 @@ public class QuestCollection : ScriptableObject, IQuest
     {
         return _currentState == State.Started;
     }
-   
 
     public bool IsCompleted()
     {
@@ -80,7 +87,6 @@ public class QuestCollection : ScriptableObject, IQuest
     public void Lock ()
     {
         _currentState = State.Locked;
-        // TODO Error
     }
 
     public void Unlock()
@@ -117,13 +123,13 @@ public class QuestCollection : ScriptableObject, IQuest
             _currentState = State.Finished;
         }
 
-        foreach (QuestCollection q in _unlockQuestsOnCompletion)
+        foreach (CollectionQuest q in _unlockQuestsOnCompletion)
         {
             Debug.Log("Unlocking " + q._name);
             q.Unlock();
         }
 
-        foreach (QuestCollection q in _startQuestsOnCompletion)
+        foreach (CollectionQuest q in _startQuestsOnCompletion)
         {
             Debug.Log("Starting " + q._name);
             q.Start();

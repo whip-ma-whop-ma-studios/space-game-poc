@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YellowFlowerController : Consumable, IInteractableObj, IQuestUpdater
+public class YellowFlowerController : Consumable, IInteractableObj
 {
     [SerializeField]
-    public List<QuestCollection> _relatedCollectionQuests;
+    public List<CollectionQuest> _relatedCollectionQuests;
 
     public void Interact()
     {
@@ -14,7 +14,7 @@ public class YellowFlowerController : Consumable, IInteractableObj, IQuestUpdate
 
     public void ProgressQuest()
     {
-        foreach (QuestCollection q in _relatedCollectionQuests)
+        foreach (CollectionQuest q in _relatedCollectionQuests)
         {
             // Check all related quests for the first that can be progressed
             if (q.IsStarted())
