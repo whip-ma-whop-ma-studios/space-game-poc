@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8074391951f0fd64faf51262d774e911, type: 3}
+  m_Name: EatRedFlower
+  m_EditorClassIdentifier: 
+  _name: EatRedFlower
+  _description: Eat 3 red flowers to get into the cave
+  _startAmount: 0
+  _endAmount: 3
+  _startUnlocked: 0
+  _startConversation: {fileID: 11400000, guid: 3d173000972957d41b84c05076aeb183, type: 2}
+  _midConversation: {fileID: 11400000, guid: 84f74ec8e7e2b1844831c03de44a166f, type: 2}
+  _endConversation: {fileID: 11400000, guid: 5520dec9d491af34fa753a741be47a1f, type: 2}
+  _unlockQuestsOnCompletion: []
+  _startQuestsOnCompletion: []
+  _currentAmount: 0
+  _currentState: 2

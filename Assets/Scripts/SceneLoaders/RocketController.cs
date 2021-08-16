@@ -29,4 +29,14 @@ public class RocketController : SceneLoader, IInteractableObj
         yield return new WaitForSeconds(_animationTime);
         LoadScene(_sceneToLoad);
     }
+
+    public void CheckRequiredState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TransitionToNextState()
+    {
+        throw new System.NotImplementedException();
+    }
 }
