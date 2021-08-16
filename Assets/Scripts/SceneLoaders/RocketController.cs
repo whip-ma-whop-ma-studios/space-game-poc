@@ -17,7 +17,7 @@ public class RocketController : SceneLoader, IInteractableObj
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         StartCoroutine(TransitionScene());
     }

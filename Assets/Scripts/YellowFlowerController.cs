@@ -6,9 +6,16 @@ public class YellowFlowerController : Consumable, IInteractableObj
     [SerializeField]
     public List<CollectionQuest> _relatedCollectionQuests;
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         Consume(-20);
+
+        HealthManager healthManager = interactor.GetComponent<HealthManager>();
+        if (healthManager != null)
+        {
+            healthManager.UpdateHealth(-20);
+        }
+
         ProgressQuest();
     }
 

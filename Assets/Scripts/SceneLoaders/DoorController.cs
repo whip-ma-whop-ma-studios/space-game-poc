@@ -8,7 +8,7 @@ public class DoorController : SceneLoader, IInteractableObj
     [SerializeField]
     public string _sceneToLoad;
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         CheckRequiredState();
     }

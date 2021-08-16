@@ -7,9 +7,16 @@ public class RedFlowerController : Consumable, IInteractableObj
     [SerializeField]
     public List<CollectionQuest> _relatedCollectionQuests;
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         Consume(10);
+        
+        HealthManager healthManager = interactor.GetComponent<HealthManager>();
+        if (healthManager != null)
+        {
+            healthManager.UpdateHealth(10);
+        }
+        
         ProgressQuest();
     }
 

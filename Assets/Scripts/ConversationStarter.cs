@@ -12,7 +12,7 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
     [SerializeField]
     public List<CollectionQuest> _relatedCollectionQuests;
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         _dialogueUI.SetActive(true);
         Time.timeScale = 0;
