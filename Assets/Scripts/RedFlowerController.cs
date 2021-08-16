@@ -5,34 +5,24 @@ using UnityEngine;
 public class RedFlowerController : Consumable, IInteractableObj
 {
     [SerializeField]
-    public ObjectiveState _requiredState;
-    [SerializeField]
-    public Objective _relatedObjective;
+    public List<QuestCollection> _relatedCollectionQuests;
 
     public void Interact()
     {
         Consume(10);
-        CheckRequiredState();
+        ProgressQuest();
     }
 
-    public void CheckRequiredState()
+    public void ProgressQuest()
     {
-        if (_relatedObjective != null && _requiredState != null)
+        foreach (QuestCollection q in _relatedCollectionQuests)
         {
-            // Check is state is valid
-            if (_relatedObjective._currentState == _requiredState)
+            // Check all related quests for the first that can be progressed
+            if (q.IsStarted())
             {
-                Debug.Log("Completed current part of quest!");
+                Debug.Log("Incremented quest: " + q._name);
+                q.IncrementAmount(1);
             }
-
-        }
-    }
-
-    public void TransitionToNextState()
-    {
-        if (_relatedObjective != null)
-        {
-            _relatedObjective.IncrementState();
         }
     }
 }

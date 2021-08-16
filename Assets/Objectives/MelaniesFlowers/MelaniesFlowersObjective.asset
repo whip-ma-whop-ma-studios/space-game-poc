@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af467b1f73a5b5a448b213ffa804d733, type: 3}
   m_Name: MelaniesFlowersObjective
   m_EditorClassIdentifier: 
-  _currentState: {fileID: 11400000, guid: 49d67d7971d3783459ff9b44bb6d6191, type: 2}
+  _currentState: {fileID: 11400000, guid: 4ae07bb0ab0b77049a068636ca024adf, type: 2}
   objectiveStates:
   - {fileID: 11400000, guid: 8ee9af76dc1c4144dbaace7d7d43090d, type: 2}
   - {fileID: 11400000, guid: 49d67d7971d3783459ff9b44bb6d6191, type: 2}

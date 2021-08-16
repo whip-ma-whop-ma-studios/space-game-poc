@@ -9,7 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26380a13b869e141b694bffb84e7815, type: 3}
-  m_Name: EatYellow
+  m_Script: {fileID: 11500000, guid: 8074391951f0fd64faf51262d774e911, type: 3}
+  m_Name: Eat1RedFlower
   m_EditorClassIdentifier: 
-  _nextState: {fileID: 0}
+  _name: 
+  _description: 
+  startAmount: 0
+  endAmount: 0
+  unlocked: 1
+  startConversation: {fileID: 0}
+  endConversation: {fileID: 0}
+  currentAmount: 0

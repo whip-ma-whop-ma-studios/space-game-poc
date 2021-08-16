@@ -9,8 +9,6 @@ public class Conversation : ScriptableObject
 
     [SerializeField]
     private DialogueLine[] _dialogueLines;
-    [SerializeField]
-    public ObjectiveState _objectiveState;
 
     public DialogueLine GetLineByIndex(int index)
     {

@@ -10,25 +10,48 @@ public class ConversationStarter : MonoBehaviour, IInteractableObj
     private GameObject _dialogueUI;
 
     [SerializeField]
-    public Objective _relatedObjective;
+    public List<QuestCollection> _relatedCollectionQuests;
 
     public void Interact()
     {
-        Debug.Log("Completed current part of quest!" + _relatedObjective.name);
-        Debug.Log("Current state!" + _relatedObjective._currentState);
         _dialogueUI.SetActive(true);
         Time.timeScale = 0;
-        DialogueManager.StartConversation(_conversationManager.ChooseConversation());
         PlayerInputController.PlayerInputEnabled = false;
-    }
 
-    public void CheckRequiredState()
-    {
+        foreach (QuestCollection q in _relatedCollectionQuests)
+        {
+            // Check through quests to find relevent one
+            if (q.IsLocked())
+            {
+                // This quest is still locked, try the next
+                continue;
+            }            
+            else if (q.IsUnlocked())
+            {
+                // Quest is unlocked, start it
+                Debug.Log("Starting quest: " + q._name);
+                q.Start();
+                DialogueManager.StartConversation(q.startConversation);
+                return;
+            }
+            else if (q.IsCompleted())
+            {
+                // just completed, finish it
+                DialogueManager.StartConversation(q.endConversation);
+                Debug.Log("Checking finished quest: " + q._name);
+                q.Finish();
+                return;
+            }
+            else if (q.IsStarted())
+            {
+                // started and in progress, but not complete
+                Debug.Log("In mid quest: " + q._name);
+                DialogueManager.StartConversation(q.startConversation);
+                return;
+            }
+        }
 
-    }
-
-    public void TransitionToNextState()
-    {
-        
+        // No quests unlocked & started, play random conversation
+        DialogueManager.StartConversation(_conversationManager.ChooseConversation());
     }
 }

@@ -22,9 +22,5 @@ MonoBehaviour:
     dialogue: Aha! Well done!
     animation: {fileID: 0}
   - isSpeakerOne: 0
-    dialogue: Although, I lied because I'm mental.
+    dialogue: Here is a coin. Come back when you're bored.
     animation: {fileID: 7400000, guid: 232c3fdd0c63a1f4babcf83e24aeaf4e, type: 2}
-  - isSpeakerOne: 0
-    dialogue: ' You must eat the red one before I give you the key.'
-    animation: {fileID: 7400000, guid: 232c3fdd0c63a1f4babcf83e24aeaf4e, type: 2}
-  _objectiveState: {fileID: 11400000, guid: 6e57135abcbc5a2459f6e681b1bb6979, type: 2}
