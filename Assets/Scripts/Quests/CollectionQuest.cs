@@ -53,8 +53,9 @@ public class CollectionQuest : ScriptableObject
     {
         _currentAmount += incrementAmount;
 
-        if (_currentAmount == _endAmount)
+        if (_currentAmount >= _endAmount)
         {
+            _currentAmount = _endAmount;
             _currentState = State.Completed;
         }
     }
