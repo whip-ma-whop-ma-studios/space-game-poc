@@ -17,7 +17,7 @@ public class RocketController : SceneLoader, IInteractableObj
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
         StartCoroutine(TransitionScene());
     }
@@ -28,5 +28,15 @@ public class RocketController : SceneLoader, IInteractableObj
         _animator.Play("RocketLiftOff");
         yield return new WaitForSeconds(_animationTime);
         LoadScene(_sceneToLoad);
+    }
+
+    public void CheckRequiredState()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TransitionToNextState()
+    {
+        throw new System.NotImplementedException();
     }
 }

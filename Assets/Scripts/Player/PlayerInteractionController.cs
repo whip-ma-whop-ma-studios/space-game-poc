@@ -10,6 +10,9 @@ public class PlayerInteractionController : MonoBehaviour
     [SerializeField]
     private InteractionPopupController _interactionPopupController;
 
+    [SerializeField]
+    private GameObject _player;
+
     private const float DetectionRadius = 1;
 
     private IEnumerable<Collider2D> _hitColliders;
@@ -28,7 +31,7 @@ public class PlayerInteractionController : MonoBehaviour
                 IInteractableObj interactableObj = hitCollider.GetComponent<IInteractableObj>();
                 if (interactableObj != null)
                 {
-                    interactableObj.Interact();
+                    interactableObj.Interact(_player);
                 }
             }
         }
