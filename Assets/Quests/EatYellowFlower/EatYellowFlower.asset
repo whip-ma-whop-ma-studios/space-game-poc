@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EatYellowFlower
   m_EditorClassIdentifier: 
   _name: Yellow Flower
-  _description: This is a test quest
+  _description: Eat <b>1 yellow flower</b> and let Melanie know.
   _startAmount: 0
   _endAmount: 1
   _startUnlocked: 1
@@ -24,5 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 096044419b70fd542a302b1555045490, type: 2}
   _startQuestsOnCompletion:
   - {fileID: 0}
-  _currentAmount: 0
-  _currentState: 1
+  _currentAmount: 1
+  _currentState: 4

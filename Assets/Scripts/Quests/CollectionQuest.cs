@@ -136,4 +136,9 @@ public class CollectionQuest : ScriptableObject
         }
         // TODO Error
     }
+
+    public string GenerateProgressText()
+    {
+        return _description + "\n\n" + "<b>" + _currentAmount + "/" + _endAmount + "</b>";
+    }
 }

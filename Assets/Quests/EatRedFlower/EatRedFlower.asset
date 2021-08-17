@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EatRedFlower
   m_EditorClassIdentifier: 
   _name: EatRedFlower
-  _description: Eat 3 red flowers to get into the cave
+  _description: Eat <b>3 red flowers</b> and let Melanie know.
   _startAmount: 0
   _endAmount: 3
   _startUnlocked: 0
@@ -22,5 +22,5 @@ MonoBehaviour:
   _endConversation: {fileID: 11400000, guid: 5520dec9d491af34fa753a741be47a1f, type: 2}
   _unlockQuestsOnCompletion: []
   _startQuestsOnCompletion: []
-  _currentAmount: 0
-  _currentState: 2
+  _currentAmount: 3
+  _currentState: 4
